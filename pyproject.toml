@@ -1,7 +1,7 @@
 [project]
 name = "entityhash"
-version = "1.0.0"
-description = "Class that unifies interface for hash calculation and representation"
+version = "1.0.1"
+description = "Library that unifies interface for hash calculation and representation"
 authors = [
     {name = "Adam Ryczkowski",email = "adam@statystyka.net"}
 ]
