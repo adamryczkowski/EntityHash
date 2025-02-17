@@ -92,11 +92,11 @@ def add_thing_to_hash(sha256, value: Any):
     elif isinstance(value, int):
         sha256.update(struct.pack("q", value))
     elif (
-            inspect.ismodule(value)
-            or inspect.isclass(value)
-            or inspect.ismethod(value)
-            or inspect.isfunction(value)
-            or inspect.iscode(value)
+        inspect.ismodule(value)
+        or inspect.isclass(value)
+        or inspect.ismethod(value)
+        or inspect.isfunction(value)
+        or inspect.iscode(value)
     ):
         if value.__module__ == "builtins":
             sha256.update(value.__name__.encode())

@@ -39,3 +39,8 @@ test:
   #!/usr/bin/env bash
   set -euo pipefail
   poetry run pytest
+
+check-all:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  pre-commit run --all-files
