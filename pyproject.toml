@@ -1,0 +1,18 @@
+[project]
+name = "entityhash"
+version = "0.1.0"
+description = "Class that unifies interface for hash calculation and representation"
+authors = [
+    {name = "Adam Ryczkowski",email = "adam@statystyka.net"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic (>=2.10.6,<3.0.0)",
+    "numpy (>=2.2.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
