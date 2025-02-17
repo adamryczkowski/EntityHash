@@ -1,6 +1,6 @@
 [project]
 name = "entityhash"
-version = "1.0.1"
+version = "1.0.2"
 description = "Library that unifies interface for hash calculation and representation"
 authors = [
     {name = "Adam Ryczkowski",email = "adam@statystyka.net"}

@@ -91,6 +91,8 @@ def add_thing_to_hash(sha256, value: Any):
         sha256.update(struct.pack("d", value))
     elif isinstance(value, int):
         sha256.update(struct.pack("q", value))
+    elif isinstance(value, bytes):
+        sha256.update(value)
     elif (
         inspect.ismodule(value)
         or inspect.isclass(value)
