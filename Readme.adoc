@@ -1,0 +1,96 @@
+= EntityHash
+
+== Overview
+
+EntityHash is a Python library that provides a unified interface for hash calculation and representation. It supports various data types and offers multiple ways to represent hashes, including hexadecimal, base64, and integer formats.
+
+== Installation
+
+To install EntityHash, you can use pip:
+
+```
+pip install entityhash
+```
+
+The project has been tested to work with Python version is 3.12.
+
+== Example Usage
+
+Here are some examples of how to use the EntityHash library:
+
+=== Creating Hashes
+
+You can create an `EntityHash` from various data types:
+
+```python
+from entityhash import EntityHash
+
+# From a hexadecimal string
+hex_hash = EntityHash.FromHex("a3f5c3")
+
+# From a base64 string
+base64_hash = EntityHash.FromBase64("q9XDOw==")
+
+# From an integer
+int_hash = EntityHash.FromInt(123456)
+
+# From a hashlib object
+import hashlib
+hashlib_obj = hashlib.sha256(b"example").digest()
+hashlib_hash = EntityHash.FromHashlib(hashlib_obj)
+
+# From bytes
+bytes_hash = EntityHash.FromBytes(b'\x12\x34\x56')
+```
+
+=== Hash Representation
+
+You can represent an EntityHash in different formats:
+
+```python
+# As hexadecimal
+print(hex_hash.as_hex)
+
+# As base64
+print(base64_hash.as_base64)
+
+# As integer
+print(int_hash.as_int)
+
+# As bytes
+print(bytes_hash.as_bytes)
+```
+
+=== Calculating Hashes
+
+You can calculate hashes for various data types using the calc_hash function:
+
+from entityhash import calc_hash
+
+```python
+# Calculate hash for a string
+string_hash = calc_hash("example")
+
+# Calculate hash for a dictionary
+dict_hash = calc_hash({"key": "value"})
+
+# Calculate hash for a list
+list_hash = calc_hash([1, 2, 3])
+
+# Calculate hash for a numpy array
+import numpy as np
+array_hash = calc_hash(np.array([1, 2, 3]))
+```
+
+=== Combining Hashes
+
+You can combine multiple EntityHash objects into a single hash:
+
+```python
+from entityhash import combine_hashes
+
+hash1 = EntityHash.FromInt(1)
+hash2 = EntityHash.FromInt(2)
+combined_hash = combine_hashes([hash1, hash2])
+print(combined_hash.as_hex)
+```

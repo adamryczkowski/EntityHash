@@ -1,15 +1,16 @@
 [project]
 name = "entityhash"
-version = "0.1.0"
+version = "1.0.0"
 description = "Class that unifies interface for hash calculation and representation"
 authors = [
     {name = "Adam Ryczkowski",email = "adam@statystyka.net"}
 ]
-readme = "README.md"
+readme = "README.adoc"
 requires-python = ">=3.12"
 dependencies = [
     "pydantic (>=2.10.6,<3.0.0)",
-    "numpy (>=2.2.3,<3.0.0)"
+    "numpy (>=2.2.3,<3.0.0)",
+    "pytest (>=8.3.4,<9.0.0)"
 ]
 
 
