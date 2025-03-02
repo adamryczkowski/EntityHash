@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "EntityHash"
-version = "1.1.0"
+version = "1.2.0"
 description = "Library that unifies interface for hash calculation and representation"
 authors = ["Adam Ryczkowski <adam@statystyka.net>"]
 readme = "README.adoc"
@@ -10,6 +10,7 @@ packages = [{ include = "EntityHash"}]
 python = "^3.10"
 pydantic = "^2.10.6"
 numpy = "^2.2.3"
+pytest = "^8.3.5"
 
 [poetry.group.dev.dependencies]
 pytest = "^8.3.4"

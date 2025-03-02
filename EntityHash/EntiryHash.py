@@ -28,6 +28,13 @@ class EntityHash(BaseModel):
         return EntityHash.FromBytes(data=hashlib.digest())
 
     @staticmethod
+    def FromDiskFile(file_path: str, hash_algorithm: str) -> EntityHash:
+        with open(file_path, "rb") as file:
+            # noinspection PyTypeChecker
+            digest = hashlib.file_digest(file, hash_algorithm)
+        return EntityHash.FromBytes(digest.digest())
+
+    @staticmethod
     def FromBytes(data: bytes) -> EntityHash:
         return EntityHash(hash=int.from_bytes(data, byteorder="big"))
 

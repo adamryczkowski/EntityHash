@@ -1,4 +1,6 @@
 # tests/test_entity_hash.py
+import tempfile
+
 import pytest
 import hashlib
 import random
@@ -35,7 +37,24 @@ def test_entity_hash(seed):
     assert entity_hash_base64.as_hex == sha256.hexdigest()
 
 
+def test_file():
+    random_data = random.randbytes(1024)
+    tmp_file = tempfile.NamedTemporaryFile(delete=False)
+    tmp_file.write(random_data)
+    tmp_file.close()
+    sha256 = hashlib.sha256()
+    sha256.update(random_data)
+    entity_hash = EntityHash.FromHashlib(sha256)
+
+    entity_hash1 = EntityHash.FromDiskFile(tmp_file.name, "sha256")
+    entity_hash2 = EntityHash.FromBytes(entity_hash.as_bytes)
+    assert entity_hash1.as_hex == entity_hash2.as_hex
+
+
 if __name__ == "__main__":
     for seed in [42, 43, 44, 45, 46]:
         test_entity_hash(seed)
     print("entity_hash tests passed")
+
+    test_file()
+    print("file tests passed")
