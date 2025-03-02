@@ -1,18 +1,18 @@
-[project]
-name = "entityhash"
-version = "1.0.2"
+[tool.poetry]
+name = "EntityHash"
+version = "1.1.0"
 description = "Library that unifies interface for hash calculation and representation"
-authors = [
-    {name = "Adam Ryczkowski",email = "adam@statystyka.net"}
-]
+authors = ["Adam Ryczkowski <adam@statystyka.net>"]
 readme = "README.adoc"
-requires-python = ">=3.12"
-dependencies = [
-    "pydantic (>=2.10.6,<3.0.0)",
-    "numpy (>=2.2.3,<3.0.0)",
-    "pytest (>=8.3.4,<9.0.0)"
-]
+packages = [{ include = "EntityHash"}]
 
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.10.6"
+numpy = "^2.2.3"
+
+[poetry.group.dev.dependencies]
+pytest = "^8.3.4"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

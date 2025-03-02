@@ -2,7 +2,7 @@
 import pytest
 import hashlib
 import random
-from entityhash import EntityHash
+from EntityHash import EntityHash
 
 
 def generate_random_hash(seed: int) -> bytes:

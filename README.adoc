@@ -23,7 +23,7 @@ Here are some examples of how to use the EntityHash library:
 You can create an `EntityHash` from various data types:
 
 ```python
-from entityhash import EntityHash
+from EntityHash import EntityHash
 
 # From a hexadecimal string
 hex_hash = EntityHash.FromHex("a3f5c3")
@@ -87,7 +87,7 @@ array_hash = calc_hash(np.array([1, 2, 3]))
 You can combine multiple EntityHash objects into a single hash:
 
 ```python
-from entityhash import combine_hashes
+from EntityHash import combine_hashes
 
 hash1 = EntityHash.FromInt(1)
 hash2 = EntityHash.FromInt(2)
