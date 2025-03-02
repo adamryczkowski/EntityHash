@@ -1,10 +1,13 @@
 from __future__ import annotations
-from typing import Any
-import numpy as np
+
 import base64
-import inspect
 import hashlib
+import inspect
 import struct
+from pathlib import Path
+from typing import Any
+
+import numpy as np
 from pydantic import BaseModel
 
 
@@ -28,7 +31,7 @@ class EntityHash(BaseModel):
         return EntityHash.FromBytes(data=hashlib.digest())
 
     @staticmethod
-    def FromDiskFile(file_path: str, hash_algorithm: str) -> EntityHash:
+    def FromDiskFile(file_path: Path, hash_algorithm: str) -> EntityHash:
         with open(file_path, "rb") as file:
             # noinspection PyTypeChecker
             digest = hashlib.file_digest(file, hash_algorithm)
