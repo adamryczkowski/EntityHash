@@ -46,7 +46,7 @@ def test_file():
     sha256.update(random_data)
     entity_hash = EntityHash.FromHashlib(sha256)
 
-    entity_hash1 = EntityHash.FromDiskFile(tmp_file.name, "sha256")
+    entity_hash1 = EntityHash.HashDiskFile(tmp_file.name, "sha256")
     entity_hash2 = EntityHash.FromBytes(entity_hash.as_bytes)
     assert entity_hash1.as_hex == entity_hash2.as_hex
 

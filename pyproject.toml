@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "EntityHash"
-version = "1.2.1"
+version = "1.2.2"
 description = "Library that unifies interface for hash calculation and representation"
 authors = ["Adam Ryczkowski <adam@statystyka.net>"]
 readme = "README.adoc"
