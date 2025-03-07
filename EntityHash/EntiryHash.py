@@ -6,6 +6,7 @@ import inspect
 import struct
 from pathlib import Path
 from typing import Any
+import datetime as dt
 
 import numpy as np
 from pydantic import BaseModel
@@ -109,6 +110,10 @@ def add_thing_to_hash(sha256, value: Any):
         sha256.update(struct.pack("q", value))
     elif isinstance(value, bytes):
         sha256.update(value)
+    elif isinstance(value, dt.timedelta):
+        add_thing_to_hash(sha256, value.total_seconds())
+    elif isinstance(value, dt.datetime):
+        add_thing_to_hash(sha256, value.isoformat())
     elif (
         inspect.ismodule(value)
         or inspect.isclass(value)
