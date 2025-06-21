@@ -75,6 +75,9 @@ class EntityHash(BaseModel):
     def __str__(self) -> str:
         return self.as_hex
 
+    def __hash__(self):
+        return self.hash
+
 
 def combine_hashes(hashes: list[EntityHash]) -> EntityHash:
     sha256 = hashlib.sha256()
