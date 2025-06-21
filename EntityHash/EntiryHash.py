@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 import base64
+import datetime as dt
 import hashlib
 import inspect
 import struct
 from pathlib import Path
 from typing import Any
-import datetime as dt
 
 import numpy as np
 from pydantic import BaseModel
@@ -47,6 +47,14 @@ class EntityHash(BaseModel):
     @staticmethod
     def FromBytes(data: bytes) -> EntityHash:
         return EntityHash(hash=int.from_bytes(data, byteorder="big"))
+
+    @staticmethod
+    def FromPydanticModel(model: BaseModel) -> EntityHash:
+        """
+        Creates an EntityHash from a Pydantic model by hashing its JSON representation.
+        """
+        json_data = model.model_dump_json()
+        return calc_hash(json_data)
 
     @property
     def as_hex(self) -> str:
