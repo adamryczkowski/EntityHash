@@ -28,8 +28,8 @@ class EntityHash(BaseModel):
         return EntityHash(hash=value)
 
     @staticmethod
-    def FromHashlib(hashlib: hashlib) -> EntityHash:
-        return EntityHash.FromBytes(data=hashlib.digest())
+    def FromHashlib(hl: hashlib._Hash) -> EntityHash:
+        return EntityHash.FromBytes(data=hl.digest())
 
     @staticmethod
     def HashDiskFile(file_path: Path, hash_algorithm: str) -> EntityHash:
@@ -130,6 +130,7 @@ def add_thing_to_hash(sha256, value: Any):
         or inspect.iscode(value)
     ):
         if value.__module__ == "builtins":
+            assert isinstance(value, type) or inspect.isfunction(value)
             sha256.update(value.__name__.encode())
         else:
             sha256.update(inspect.getsource(value).encode())
